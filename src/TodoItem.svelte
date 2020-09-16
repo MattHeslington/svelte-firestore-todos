@@ -27,8 +27,6 @@
         color: green;
     }
 </style>
-
-
 <li in:fly="{{ x: 900, duration: 500 }}">
     {#if complete}
         <span class="is-complete">{ text }</span>
@@ -38,5 +36,5 @@
         <button on:click={toggleStatus}>✔️</button>
     {/if}
 
-    <button on:click={remove}> 🗑 </button>
+    <button class="pt-4" on:click={remove}> 🗑 </button>
 </li>

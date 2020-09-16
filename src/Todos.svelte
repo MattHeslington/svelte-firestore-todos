@@ -18,9 +18,8 @@
     const todos = collectionData(query, 'id').pipe(startWith([]));
 
     function add() {
-        db.collection('todos').add({ uid, text, tag, complete: false, created: Date.now() });
+        db.collection('todos').add({ uid, text, complete: false, created: Date.now() });
         text = '';
-        tag = '';
     }
 
     function updateStatus(event) {
