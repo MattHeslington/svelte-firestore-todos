@@ -9,8 +9,7 @@
     export let uid;
 
     // Form Text
-    let text = 'some task';
-    let tag = 'your tag';
+    let text = '';
 
     // Query requires an index, see screenshot below
     const query = db.collection('todos').where('uid', '==', uid).orderBy('created');
@@ -37,12 +36,14 @@
     input { display: block }
 </style>
 
-<ul>
+<div class="flex items-center justify-between my-2">
+    <input class="py-1 px-2 border border-gray-400 rounded" placeholder="Add a task" bind:value={text}>
+    <button class="bg-green-600 text-white font-bold px-3 py-1 rounded-lg" on:click={add}>Add Task</button>
+</div>
+
+<ul class="">
 	{#each $todos as todo}
         <TodoItem {...todo} on:remove={removeItem} on:toggle={updateStatus} />
 	{/each}
 </ul>
 
-<input bind:value={text}>
-
-<button on:click={add}>Add Task</button>

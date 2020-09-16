@@ -27,14 +27,28 @@
         color: green;
     }
 </style>
-<li in:fly="{{ x: 900, duration: 500 }}">
+<li class="odd:bg-gray-200" in:fly="{{ y: 900, duration: 500 }}">
     {#if complete}
-        <span class="is-complete">{ text }</span>
-        <button on:click={toggleStatus}>❌</button>
+    <div class="flex justify-between items-center">
+        <div>
+            <span class="is-complete">{ text }</span>
+        </div>
+        <div>
+            <button on:click={toggleStatus}>❌</button>
+            <button class="pt-4" on:click={remove}> 🗑 </button>
+        </div>
+    </div>
     {:else}
-        <span>{ text }</span>
-        <button on:click={toggleStatus}>✔️</button>
+    <div class="flex justify-between items-center">
+        <div>
+            <span>{ text }</span>
+        </div>
+        <div>
+            <button on:click={toggleStatus}>✔️</button>
+            <button class="pt-4" on:click={remove}> 🗑 </button>
+        </div>
+    </div>
     {/if}
 
-    <button class="pt-4" on:click={remove}> 🗑 </button>
+
 </li>
